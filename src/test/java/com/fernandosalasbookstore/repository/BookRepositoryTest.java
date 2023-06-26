@@ -26,6 +26,16 @@ class BookRepositoryTest {
         System.out.println(book.toString());
     }
 
+    @Test
+    void updateMethod() {
+        Book book = bookRepository.findById(1L).get();
+        book.setPrice(new BigDecimal("15.25"));
+        book.setDescription("Brief Answers to the Big Questions is a popular science book written by physicist Stephen Hawking, and published by Hodder & Stoughton (hardcover) and Bantam Books (paperback)");
+        Book newBook = bookRepository.save(book);
+        System.out.println("Price: " + newBook.getPrice());
+        System.out.println("Description: " + newBook.getDescription());
+    }
+
     
 
 }
