@@ -103,7 +103,11 @@ class BookRepositoryTest {
         System.out.println("Number of Books: " + bookCount);
     }
 
-    
+    @Test
+    void existsByIdMethod() {
+       boolean result = bookRepository.existsById(5L);
+       System.out.println("Does book with id 5 exist: " + result);
+    }
 
 
 }
