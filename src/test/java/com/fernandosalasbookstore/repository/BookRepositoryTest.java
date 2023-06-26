@@ -97,5 +97,13 @@ class BookRepositoryTest {
         bookRepository.deleteAll();
     }
 
+    @Test
+    void countMethod() {
+        long bookCount = bookRepository.count();
+        System.out.println("Number of Books: " + bookCount);
+    }
+
+    
+
 
 }
