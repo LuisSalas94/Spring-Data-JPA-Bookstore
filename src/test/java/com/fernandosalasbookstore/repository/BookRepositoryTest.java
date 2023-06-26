@@ -92,5 +92,10 @@ class BookRepositoryTest {
         bookRepository.delete(book);
     }
 
+    @Test
+    void deleteAllMethod() {
+        bookRepository.deleteAll();
+    }
+
 
 }
