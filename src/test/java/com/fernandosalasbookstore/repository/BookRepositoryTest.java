@@ -72,6 +72,17 @@ class BookRepositoryTest {
         });
     }
 
+    @Test
+    void findAllMethod(){
+       List<Book> bookList = bookRepository.findAll();
+        bookList.forEach(item-> {
+            System.out.println("Title: " + item.getTitle());
+            System.out.println("Author: " + item.getAuthor());
+            System.out.println("Description: " + item.getDescription());
+            System.out.println("*****************************************");
+        });
+    }
+
 
 
 }
