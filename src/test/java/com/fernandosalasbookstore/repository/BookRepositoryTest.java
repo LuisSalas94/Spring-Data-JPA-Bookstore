@@ -36,6 +36,14 @@ class BookRepositoryTest {
         System.out.println("Description: " + newBook.getDescription());
     }
 
-    
+    @Test
+    void findByIdMethod() {
+        Book book = bookRepository.findById(1L).get();
+        System.out.println("Title: " + book.getTitle());
+        System.out.println("Description: " + book.getDescription());
+        System.out.println("Id: " + book.getId());
+    }
+
+
 
 }
