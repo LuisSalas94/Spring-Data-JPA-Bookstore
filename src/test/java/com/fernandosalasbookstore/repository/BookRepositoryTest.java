@@ -3,10 +3,8 @@ import com.fernandosalasbookstore.entity.Book;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.math.BigDecimal;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -86,6 +84,12 @@ class BookRepositoryTest {
     @Test
     void deleteByIdMethod() {
         bookRepository.deleteById(1L);
+    }
+
+    @Test
+    void deleteMethod() {
+        Book book = bookRepository.findById(2L).get();
+        bookRepository.delete(book);
     }
 
 
