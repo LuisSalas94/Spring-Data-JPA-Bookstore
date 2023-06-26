@@ -83,6 +83,10 @@ class BookRepositoryTest {
         });
     }
 
+    @Test
+    void deleteByIdMethod() {
+        bookRepository.deleteById(1L);
+    }
 
 
 }
