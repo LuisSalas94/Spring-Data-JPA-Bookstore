@@ -98,6 +98,18 @@ public class QueryMethodTest {
         });
     }
 
+    @Test
+    void findFirst2OrderByAuthor() {
+        List<Book> bookList = bookRepository.findFirst2OrderByAuthor("Carl Sagan");
+        bookList.forEach(book -> {
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Genre: " + book.getGenre());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Price: " + book.getPrice());
+            System.out.println("*******************************");
+        });
+    }
+
 
 
 }
