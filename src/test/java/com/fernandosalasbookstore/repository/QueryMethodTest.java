@@ -15,5 +15,11 @@ public class QueryMethodTest {
         System.out.println("Title: " + book.getTitle());
         System.out.println("Author: " + book.getAuthor());
     }
+    @Test
+    void findByIdMethod() {
+        Book book = bookRepository.findById(6L).get();
+        System.out.println("Title: " + book.getTitle());
+        System.out.println("Author: " + book.getAuthor());
+    }
 
 }
