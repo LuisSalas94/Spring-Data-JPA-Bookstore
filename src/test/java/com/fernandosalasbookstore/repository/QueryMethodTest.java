@@ -109,7 +109,16 @@ public class QueryMethodTest {
             System.out.println("*******************************");
         });
     }
-
-
+    @Test
+    void findFirst3ByOrderByPriceAscMethod() {
+        List<Book> bookList =  bookRepository.findFirst3ByOrderByPriceAsc();
+        bookList.forEach(book -> {
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Genre: " + book.getGenre());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Price: " + book.getPrice());
+            System.out.println("*******************************");
+        });
+    }
 
 }
