@@ -3,7 +3,6 @@ import com.fernandosalasbookstore.entity.Book;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -57,6 +56,28 @@ public class QueryMethodTest {
     @Test
     void findByPriceGreaterThan() {
         List<Book> bookList = bookRepository.findByPriceGreaterThan(new BigDecimal("17.00"));
+        bookList.forEach(book -> {
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Genre: " + book.getGenre());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Price: " + book.getPrice());
+            System.out.println("*******************************");
+        });
+    }
+    @Test
+    void findByPriceLessThan() {
+        List<Book> bookList = bookRepository.findByPriceLessThan(new BigDecimal("16.00"));
+        bookList.forEach(book -> {
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Genre: " + book.getGenre());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Price: " + book.getPrice());
+            System.out.println("*******************************");
+        });
+    }
+    @Test
+    void findByAuthorContainingMethod() {
+        List<Book> bookList = bookRepository.findByAuthorContaining("Yuval");
         bookList.forEach(book -> {
             System.out.println("Author: " + book.getAuthor());
             System.out.println("Genre: " + book.getGenre());
