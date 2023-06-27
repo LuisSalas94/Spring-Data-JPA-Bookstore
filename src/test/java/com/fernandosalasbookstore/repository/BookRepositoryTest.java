@@ -15,12 +15,12 @@ class BookRepositoryTest {
     @Test
     void saveMethod() {
         Book book = new Book();
-        book.setTitle("Brief Answers to the Big Questions");
-        book.setAuthor("Stephen Hawking");
-        book.setDescription("The book examines some of the universe's greatest mysteries, and promotes the view that science is very important in helping to solve problems on planet Earth.");
-        book.setPrice(new BigDecimal("14.25"));
-        book.setGenre("Cosmology");
-        book.setIsbn("b1a199b6-428f-4e5b-8fc3-fd6b99e1b1b5");
+        book.setTitle("21 Lessons for the 21st Century");
+        book.setAuthor("Yuval Noah Harari");
+        book.setDescription("Yuval Noah Harari’s 21 Lessons for the 21st Century is a probing and visionary investigation into today’s most urgent issues.");
+        book.setPrice(new BigDecimal("18.59"));
+        book.setGenre("Social Philosophy");
+        book.setIsbn("b1a199b6-428f-4e5b-8fc3-fd6b99e1b1a6");
         Book newBook = bookRepository.save(book);
         System.out.println(book.toString());
     }
