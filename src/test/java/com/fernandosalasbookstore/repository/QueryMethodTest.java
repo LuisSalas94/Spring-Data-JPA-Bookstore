@@ -43,5 +43,16 @@ public class QueryMethodTest {
             System.out.println("*******************************");
         });
     }
+    @Test
+    void findByGenreMethod() {
+       List<Book> bookList = bookRepository.findByGenre("Social Philosophy");
+        bookList.forEach(book -> {
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Genre: " + book.getGenre());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("*******************************");
+        });
+
+    }
 
 }
