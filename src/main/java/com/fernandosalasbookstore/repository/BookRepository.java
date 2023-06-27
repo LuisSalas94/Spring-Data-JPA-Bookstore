@@ -1,6 +1,7 @@
 package com.fernandosalasbookstore.repository;
 import com.fernandosalasbookstore.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -18,5 +19,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findByPriceBetween(BigDecimal startPrice, BigDecimal endPrice);
     List<Book> findFirst2OrderByAuthor(String author);
     List<Book> findFirst3ByOrderByPriceAsc();
+
+    // Define JPQL query using @Query annotation with index or position parameters
+    @Query("select b from Book b where b.author = ?1 or b.title = ?2")
+    List<Book> findByAuthorOrTitleJPQLIndexParam(String author, String title);
 
 }
