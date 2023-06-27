@@ -86,6 +86,17 @@ public class QueryMethodTest {
             System.out.println("*******************************");
         });
     }
+    @Test
+    void findByPriceBetweenMethod() {
+        List<Book> bookList = bookRepository.findByPriceBetween(new BigDecimal("14.00"), new BigDecimal("19.00"));
+        bookList.forEach(book -> {
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Genre: " + book.getGenre());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Price: " + book.getPrice());
+            System.out.println("*******************************");
+        });
+    }
 
 
 
