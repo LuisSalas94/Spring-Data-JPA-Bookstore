@@ -2,6 +2,7 @@ package com.fernandosalasbookstore.repository;
 import com.fernandosalasbookstore.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -23,5 +24,10 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     // Define JPQL query using @Query annotation with index or position parameters
     @Query("select b from Book b where b.author = ?1 or b.title = ?2")
     List<Book> findByAuthorOrTitleJPQLIndexParam(String author, String title);
+
+    // Define JPQL query named parameters
+    @Query("select b from Book b where b.author =:author or b.title =:title")
+    List<Book> findByAuthorOrTitleJPQLNamedParam(@Param("author") String author,
+                                                 @Param("title") String title);
 
 }
