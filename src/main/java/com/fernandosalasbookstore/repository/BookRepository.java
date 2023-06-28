@@ -40,4 +40,10 @@ public interface BookRepository extends JpaRepository<Book, Long> {
                                                       @Param("title") String title);
     // Define Named JPQL query
     List<Book> findByAuthor(String author);
+
+    // Define Multiple JPQL queries
+    List<Book> findAllOrderByAuthorDesc();
+
+    // Define Multiple JPQL queries
+    List<Book> findByPriceBetweenJPQL(BigDecimal minPrice, BigDecimal maxPrice);
 }

@@ -8,10 +8,24 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@NamedQuery(
-        name = "Book.findByAuthor",
-        query = "select b from Book b where b.author = ?1"
-)
+
+// Single Named JPQL query
+//@NamedQuery(
+//        name = "Book.findByAuthor",
+//        query = "select b from Book b where b.author = ?1"
+//)
+
+// Multiple Named JPQL query
+@NamedQueries({
+        @NamedQuery(
+                name = "Book.findAllOrderByAuthorDesc",
+                query = "select b from Book b order by b.author desc"
+        ),
+        @NamedQuery(
+                name = "Book.findByPriceBetweenJPQL",
+                query = "select b from Book b where b.price >= :minPrice and b.price <= :maxPrice"
+        )
+})
 
 @Table(name = "books")
 public class Book {
