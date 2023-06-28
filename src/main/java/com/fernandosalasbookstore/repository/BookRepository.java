@@ -46,4 +46,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     // Define Multiple JPQL queries
     List<Book> findByPriceBetweenJPQL(BigDecimal minPrice, BigDecimal maxPrice);
+
+    // Define Named SQL Query
+    List<Book> findByGenreNativeSQL(String genre);
 }

@@ -41,5 +41,16 @@ public class NamedQueriesTest {
             System.out.println("*******************************");
         });
     }
+    @Test
+    void findByGenreNativeSQL() {
+        List<Book> bookList = bookRepository.findByGenreNativeSQL("Social Philosophy");
+        bookList.forEach(book->{
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Genre: " + book.getGenre());
+            System.out.println("*******************************");
+        });
+    }
+
 
 }

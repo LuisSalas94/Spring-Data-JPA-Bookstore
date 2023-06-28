@@ -27,6 +27,15 @@ import java.time.LocalDateTime;
         )
 })
 
+// Named SQL Query
+@NamedNativeQuery(
+        name="Book.findByGenreNativeSQL",
+        query = "select * from books b where b.genre = ?1",
+        resultClass = Book.class
+)
+
+
+
 @Table(name = "books")
 public class Book {
     @Id
