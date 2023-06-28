@@ -30,4 +30,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findByAuthorOrTitleJPQLNamedParam(@Param("author") String author,
                                                  @Param("title") String title);
 
+    // Define Native SQL query using @Query annotation with index or position parameters
+    @Query(value = "select * from books b where b.author = ?1 or b.title = ?2", nativeQuery = true)
+    List<Book> findByAuthorOrTitleNativeSQLIndexParam(String name, String description);
 }
