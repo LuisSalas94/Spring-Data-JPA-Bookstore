@@ -51,6 +51,26 @@ public class NamedQueriesTest {
             System.out.println("*******************************");
         });
     }
+    @Test
+    void findByGenreNativeSQLMul() {
+        List<Book> bookList = bookRepository.findByGenreNativeSQLMul("Science");
+        bookList.forEach(book->{
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Genre: " + book.getGenre());
+            System.out.println("*******************************");
+        });
+    }
 
+    @Test
+    void findAllOrderByASCNativeSQLMul() {
+        List<Book> bookList = bookRepository.findAllOrderByASCNativeSQLMul();
+        bookList.forEach(book->{
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Genre: " + book.getGenre());
+            System.out.println("*******************************");
+        });
+    }
 
 }

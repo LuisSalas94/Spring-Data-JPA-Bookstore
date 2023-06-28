@@ -34,6 +34,19 @@ import java.time.LocalDateTime;
         resultClass = Book.class
 )
 
+ //Multiple SQL Queries
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name="Book.findByGenreNativeSQLMul",
+                query = "select * from books b where b.genre = ?1",
+                resultClass = Book.class
+        ),
+        @NamedNativeQuery(
+                name="Book.findAllOrderByASCNativeSQLMul",
+                query = "select * from books order by author asc",
+                resultClass = Book.class
+        )
+})
 
 
 @Table(name = "books")
