@@ -8,6 +8,11 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@NamedQuery(
+        name = "Book.findByAuthor",
+        query = "select b from Book b where b.author = ?1"
+)
+
 @Table(name = "books")
 public class Book {
     @Id
