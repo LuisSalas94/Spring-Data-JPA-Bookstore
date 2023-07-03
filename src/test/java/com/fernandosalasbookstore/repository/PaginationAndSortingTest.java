@@ -86,4 +86,45 @@ public class PaginationAndSortingTest {
             System.out.println("***************************");
         });
     }
+
+    @Test
+    void paginationAndSortingTogether() {
+        String sortBy = "price";
+        String sortDir = "desc";
+        int pageNo = 0;
+        int pageSize = 5;
+        // Sort object
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ?
+                    Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+        // Pageable object
+        Pageable pageable = PageRequest.of(pageNo, pageSize, sort);
+        Page<Book> page = bookRepository.findAll(pageable);
+        List<Book> bookList = page.getContent();
+        bookList.forEach(book -> {
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Price: " + book.getPrice());
+            System.out.println("Description: " + book.getDescription());
+            System.out.println("***************************");
+        });
+        // total pages
+        int totalPage = page.getTotalPages();
+        // total elements
+        long totalElements = page.getTotalElements();
+        // number of elements
+        int numberOfElements = page.getNumberOfElements();
+        // size
+        int size = page.getSize();
+        // last
+        boolean isLast = page.isLast();
+        // first
+        boolean isFirst = page.isFirst();
+
+        System.out.println("Total page: " + totalPage);
+        System.out.println("Total Elements: " + totalElements);
+        System.out.println("Number of Elements: " + numberOfElements);
+        System.out.println("Size: " + size);
+        System.out.println("Is last?: " + isLast);
+        System.out.println("Is first: " + isFirst);
+
+    }
 }
