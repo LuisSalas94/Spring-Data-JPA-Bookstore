@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -49,5 +50,17 @@ public class PaginationAndSortingTest {
         System.out.println("Size: " + size);
         System.out.println("Is last?: " + isLast);
         System.out.println("Is first: " + isFirst);
+    }
+
+    @Test
+    void sorting() {
+        String sortBy = "price";
+        //String sortDir = "desc";
+        List<Book> bookList = bookRepository.findAll(Sort.by(sortBy).descending());
+        bookList.forEach(book -> {
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Price: " + book.getPrice());
+            System.out.println("***************************");
+        });
     }
 }
