@@ -63,4 +63,27 @@ public class PaginationAndSortingTest {
             System.out.println("***************************");
         });
     }
+
+    @Test
+    void sortingByMultipleFields() {
+        String sortBy = "title";
+        String sortByPrice = "price";
+        String sortDir = "desc";
+
+        Sort sortByTitle = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name())?
+                Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+
+        Sort sortByBookPrice = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name())?
+                Sort.by(sortByPrice).ascending() : Sort.by(sortByPrice).descending();
+
+        Sort groupBySort = sortByTitle.and(sortByBookPrice);
+
+        List<Book> bookList = bookRepository.findAll(groupBySort);
+        bookList.forEach(book -> {
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Price: " + book.getPrice());
+            System.out.println("Description: " + book.getDescription());
+            System.out.println("***************************");
+        });
+    }
 }
