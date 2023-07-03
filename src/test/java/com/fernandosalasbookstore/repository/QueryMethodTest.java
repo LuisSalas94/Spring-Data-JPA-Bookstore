@@ -120,5 +120,4 @@ public class QueryMethodTest {
             System.out.println("*******************************");
         });
     }
-
 }

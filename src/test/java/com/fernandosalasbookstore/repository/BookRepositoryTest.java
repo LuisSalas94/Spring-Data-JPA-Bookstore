@@ -46,28 +46,28 @@ class BookRepositoryTest {
     @Test
     void saveAllMethod() {
         Book book = new Book();
-        book.setTitle("The Demon-Haunted World: Science as a Candle in the Dark");
-        book.setAuthor("Carl Sagan");
-        book.setDescription("Casting a wide net through history and culture, Sagan examines and authoritatively debunks such celebrated fallacies of the past as witchcraft, faith healing, demons, and UFOs.");
-        book.setPrice(new BigDecimal("18.79"));
-        book.setGenre("Science");
-        book.setIsbn("b1a199b6-428f-4e5b-8fc3-fd6b99e1b1a2\"");
+        book.setTitle("12 Rules for Life: An Antidote to Chaos");
+        book.setAuthor("Jordan B. Peterson");
+        book.setDescription("The number one Sunday Times and Audible best seller from 'the most influential public intellectual in the Western world.");
+        book.setPrice(new BigDecimal("15.69"));
+        book.setGenre("Self Help");
+        book.setIsbn("b1a199b6-428f-4e5b-8fc3-fd6b99e1b1c1");
 
         Book book2 = new Book();
-        book2.setTitle("The Dragons of Eden: Speculations on the Evolution of Human Intelligence");
-        book2.setAuthor("Carl Sagan");
-        book2.setDescription("Dr. Carl Sagan takes us on a great reading adventure.");
-        book2.setPrice(new BigDecimal("15.69"));
-        book2.setGenre("Science");
-        book2.setIsbn("1a199b6-428f-4e5b-8fc3-fd6b99e1b1a3");
+        book2.setTitle("Beyond Order: 12 More Rules for Life");
+        book2.setAuthor("Jordan B. Peterson\"");
+        book2.setDescription("Jordan B. Peterson's Maps of Meaning is now available for the first time.");
+        book2.setPrice(new BigDecimal("17.69"));
+        book2.setGenre("Self Help");
+        book2.setIsbn("b1a199b6-428f-4e5b-8fc3-fd6b99e1b1c2");
 
         Book book3 = new Book();
-        book3.setTitle("Homo Deus: A Brief History of Tomorrow");
-        book3.setAuthor("Yuval Noah Harari");
-        book3.setDescription("Over the past century, humankind has managed to do the impossible.");
+        book3.setTitle("Maps of Meaning");
+        book3.setAuthor("Jordan B. Peterson");
+        book3.setDescription("Jordan B. Peterson's Maps of Meaning is now available for the first time from 'the most influential public intellectual in the Western world.");
         book3.setPrice(new BigDecimal("22.69"));
-        book3.setGenre("Social Philosophy");
-        book3.setIsbn("b1a199b6-428f-4e5b-8fc3-fd6b99e1b1a5");
+        book3.setGenre("Self Help");
+        book3.setIsbn("b1a199b6-428f-4e5b-8fc3-fd6b99e1b1c3");
 
 
         List<Book> bookList = bookRepository.saveAll(List.of(book, book2, book3));
