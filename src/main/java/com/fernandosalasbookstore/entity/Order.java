@@ -29,8 +29,11 @@ public class Order {
     private LocalDateTime lastUpdated;
 
     // Unidirectional One-to-One Mapping
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "billing_address_id", referencedColumnName = "id")
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "billing_address_id", referencedColumnName = "id")
+
+    // Bidirectional One-To-One Mapping
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "order")
     private Address billingAddress;
 
 }
