@@ -27,4 +27,10 @@ public class Order {
 
     @UpdateTimestamp
     private LocalDateTime lastUpdated;
+
+    // Unidirectional One-to-One Mapping
+    @OneToOne
+    @JoinColumn(name = "billing_address_id", referencedColumnName = "id")
+    private Address billingAddress;
+
 }
