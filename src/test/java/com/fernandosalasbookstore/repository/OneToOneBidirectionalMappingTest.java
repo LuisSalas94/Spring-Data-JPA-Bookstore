@@ -1,7 +1,7 @@
 package com.fernandosalasbookstore.repository;
+
 import com.fernandosalasbookstore.entity.Address;
 import com.fernandosalasbookstore.entity.Order;
-import org.aspectj.weaver.ast.Or;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,12 +9,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.math.BigDecimal;
 
 @SpringBootTest
-public class OneToOneUnidirectionalMappingTest {
+public class OneToOneBidirectionalMappingTest {
     @Autowired
-    private OrderRepository orderRepository;
+    private AddressRepository addressRepository;
 
     @Test
-    void saveOrderMethod() {
+    void saveAddressMethod() {
         Order order = new Order();
         order.setOrderTrackingNumber("1000ABC");
         order.setTotalQuantity(5);
@@ -28,25 +28,27 @@ public class OneToOneUnidirectionalMappingTest {
         address.setZipCode("411047");
 
         order.setBillingAddress(address);
-        orderRepository.save(order);
+        address.setOrder(order);
+
+        addressRepository.save(address);
     }
 
     @Test
-    void getOrderMethod() {
-        Order order = orderRepository.findById(2L).get();
-        //System.out.println(order.toString());
+    void updateAddressMethod() {
+        Address address = addressRepository.findById(1L).get();
+        address.setZipCode("411048");
+        address.getOrder().setStatus("Delivered");
+        addressRepository.save(address);
     }
 
     @Test
-    void updateOrderMethod() {
-        Order order = orderRepository.findById(1L).get();
-        order.setStatus("Delivered");
-        order.getBillingAddress().setZipCode("411087");
-        orderRepository.save(order);
+    void fetchAddressMethod() {
+        Address address = addressRepository.findById(1L).get();
     }
 
     @Test
-    void deleteOrderMethod() {
-        orderRepository.deleteById(2L);
+    void deleteAddressMethod() {
+        addressRepository.deleteById(2L);
     }
+
 }
