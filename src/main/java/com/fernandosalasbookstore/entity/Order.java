@@ -29,7 +29,7 @@ public class Order {
     private LocalDateTime lastUpdated;
 
     // Unidirectional One-to-One Mapping
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "billing_address_id", referencedColumnName = "id")
     private Address billingAddress;
 
