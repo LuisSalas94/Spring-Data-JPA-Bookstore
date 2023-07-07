@@ -39,7 +39,8 @@ public class Order {
     private Address billingAddress;
 
     // Unidirectional Mapping
-    @OneToMany(cascade = CascadeType.ALL)
+    // Default fetch type for one to many is LAZY
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id", referencedColumnName = "id")
     private Set<OrderItem> orderItems = new HashSet<>();
 
