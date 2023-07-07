@@ -43,5 +43,11 @@ public class Order {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id", referencedColumnName = "id")
     private Set<OrderItem> orderItems = new HashSet<>();
-
+    public BigDecimal getTotalAmount() {
+       BigDecimal amount = new BigDecimal("0.0");
+       for(OrderItem item : this.orderItems) {
+           amount = amount.add(item.getPrice());
+       }
+       return amount;
+    }
 }
