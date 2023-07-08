@@ -2,7 +2,6 @@ package com.fernandosalasbookstore.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
-
 @Entity
 @Data
 @Table(name = "order_items")
@@ -20,4 +19,9 @@ public class OrderItem {
     @OneToOne
     @JoinColumn(name = "book_id")
     private Book book;
+
+    // Bidirectional One-To-Many Mapping
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private Order order;
 }
