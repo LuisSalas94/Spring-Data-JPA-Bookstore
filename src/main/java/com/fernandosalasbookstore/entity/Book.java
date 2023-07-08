@@ -75,4 +75,8 @@ public class Book {
 
     @UpdateTimestamp
     private LocalDateTime lastUpdated;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private BookCategory bookCategory;
 }
