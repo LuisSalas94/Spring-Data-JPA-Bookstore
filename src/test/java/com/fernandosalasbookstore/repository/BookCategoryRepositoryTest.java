@@ -1,6 +1,7 @@
 package com.fernandosalasbookstore.repository;
 import com.fernandosalasbookstore.entity.Book;
 import com.fernandosalasbookstore.entity.BookCategory;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -48,7 +49,6 @@ class BookCategoryRepositoryTest {
             System.out.println("Book Author: " + book.getAuthor());
             System.out.println("*******************************");
         });
-
     }
 
-}
+   }
