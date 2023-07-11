@@ -1,6 +1,8 @@
 package com.fernandosalasbookstore.entity;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -35,5 +37,6 @@ public class User {
                     name = "role_id", referencedColumnName = "id"
             )
     )
-    private Set<Role> roles;
+
+    private Set<Role> roles = new HashSet<>();
 }
